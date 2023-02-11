@@ -28,6 +28,7 @@ build:
 deploy:
   script:
     - git rm -rf "*.tex" "*.cls" "*.yml"
+    - git add main.pdf
     - git config user.email "ci_pipeline@gitlab.com"
     - git config user.name "ci_pipeline"
     - git commit -m "Push latest PDF from Pipeline"
