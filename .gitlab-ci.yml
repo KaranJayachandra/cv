@@ -29,5 +29,6 @@ deploy:
   script:
     - ls
     - git status
+  needs: ["build"]
   dependencies:
     - build
