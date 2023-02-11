@@ -28,6 +28,12 @@ build:
 deploy:
   script:
     - ls
+    - git rm -rf "*.tex" "*.cls" "*.yml"
+    - git status
+    - git add *
+    - git branch tmp
+    - git checkout gl-pages
+    - git merge tmp
     - git status
   needs: ["build"]
   dependencies:
