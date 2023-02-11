@@ -24,3 +24,10 @@ build:
   artifacts:
     paths:
       - "main.pdf"
+
+deploy:
+  script:
+    - ls
+    - git status
+  dependencies:
+    - build
