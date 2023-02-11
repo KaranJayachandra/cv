@@ -32,9 +32,15 @@ deploy:
     - git status
     - git add *
     - git branch tmp
+    - git config user.email "ci_pipeline@gitlab.com"
+    - git config user.name "ci_pipeline"
+    - git remote add gitlab_origin https://oauth2:$GITLAB_ACCESS_TOKEN@gitlab.com/KaranJayachandra/cv.git
+    - git pull gitlab_origin gl-pages
     - git checkout gl-pages
     - git merge tmp
     - git status
+    - git commit -m "Push latest PDF from Pipeline"
+    - git push gitlab_origin HEAD:gl-pages -o ci.skip # prevent triggering pipeline again
   needs: ["build"]
   dependencies:
     - build
