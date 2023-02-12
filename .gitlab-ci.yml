@@ -11,6 +11,7 @@ pages:
   script:
     - latexmk -pdf main.tex
     - mkdir public
+    - mv index.html public/index.html
     - mv main.pdf public/main.pdf
 
   artifacts:
